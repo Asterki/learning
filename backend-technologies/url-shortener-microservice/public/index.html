@@ -10,9 +10,24 @@
             href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/dark.min.css"
         />
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <title>WhoAMI Microservice</title>
     </head>
     <body>
+        <div class="form">
+            <h1>Submit an url</h1>
+
+            <form>
+                <input type="url" id="url-input" name="url" placeholder="https://www.asterki.ga" />
+                <button id="submit-button">Create URL</button>
+
+                <p id="url-output">Your new URL:</p>
+            </form>
+        </div>
+
+        <br />
+        <br />
+
         <div class="docs">
             <h1>Shortener Microservice</h1>
             <p>Enter a URL and get an URL you can share</p>
@@ -58,5 +73,25 @@
 
     <script>
         hljs.highlightAll();
+
+        document.querySelector('#submit-button').addEventListener('click', async (event) => {
+            event.preventDefault();
+
+            const urlInput = document.querySelector('#url-input').value;
+            if (!urlInput) return;
+
+            const urlOutput = document.querySelector('#url-output');
+
+            const response = await axios({
+                method: 'POST',
+                url: '/api/shorturl',
+                data: {
+                    url: urlInput,
+                },
+            });
+
+            if (response.data.error) return (urlOutput.innerHTML = 'Your new URL: Invalid URL');
+            else return (urlOutput.innerHTML = `Your new URL: /api/shorturl/${response.data.short_url}`);
+        });
     </script>
 </html>

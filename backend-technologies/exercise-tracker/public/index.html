@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="styles.css" />
+        <link
+            rel="stylesheet"
+            href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/dark.min.css"
+        />
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <title>Exercise Tracker</title>
+    </head>
+    <body>
+        <div class="docs">
+            <h1>Exercise Tracker</h1>
+
+            <br />
+
+            <div class="usage">
+                <h3>Usage:</h3>
+
+                <p>Endpoint (POST request)</p>
+                <code> {url}/api/users </code>(creates a new user)
+
+                <br />
+
+                <p>Example body</p>
+                <pre><code class="language-json">
+{
+    "username": "asterki"
+}
+                </code></pre>
+
+                <p>Example response</p>
+                <pre><code class="language-json">
+{
+    "username": "ejkqwioejqwioejwqoi",
+    "_id": "63d993b19cf99d16f780ae59",
+    "__v": 0
+}               
+                </code></pre>
+
+                <br />
+                <br />
+
+                <p>Endpoint (GET request)</p>
+                <code> {url}/api/users/ </code> (Gets all users)
+
+                <br />
+
+                <p>Example response</p>
+                <pre><code class="language-json">
+[
+    {
+        "_id": "63d98ca1d772961b152628b8",
+        "username": "fcc_test_16752016977",
+        "__v": 0
+    },
+    {
+        "_id": "63d98ca2d772961b152628ba",
+        "username": "fcc_test_16752016979",
+        "__v": 0
+    },
+]
+                </code></pre>
+
+                <br />
+                <br />
+
+                <p>Endpoint (GET request)</p>
+                <code> {url}/api/users/:id/exercises/ </code> (Adds an Exercise)
+
+                <pre><code class="language-json">
+{
+    "description": "test",
+    "duration": 60,
+    "date": "2016-03-23"
+}
+                                    </code></pre>
+
+                <br />
+
+                <p>Example response</p>
+                <pre><code class="language-json">
+{
+    "username": "asterki",
+    description: "test",
+    duration: 60,
+    date: "Mon Jan 01 1990",
+    _id: "63d98ca2d772961b152628ba"
+}
+                </code></pre>
+
+                <br />
+                <br />
+
+                <p>Endpoint (GET request)</p>
+                <code> {url}/api/users/:id/logs/ </code> (Gets Exercises)
+
+                <p>Example Params</p>
+                <pre><code class="language-json">
+{
+    "_id": "63d98ca2d772961b152628ba",
+    "from": "2016-03-23",
+    "to": "2016-03-24", 
+    "limit": 2
+}
+                                    </code></pre>
+
+                <br />
+
+                <p>Example response</p>
+                <pre><code class="language-json">
+{
+    "username": "asterki",
+    "count": 2,
+    "log": [
+        {
+            "username": "asterki",
+            "description": "test",
+            "duration": 60,
+            "date": "2016-03-23"
+        },
+        {
+            "username": "asterki",
+            "description": "test 2",
+            "duration": 60,
+            "date": "2016-03-24"
+        }
+    ]
+}                    
+                </code></pre>
+            </div>
+        </div>
+    </body>
+
+    <script>
+        hljs.highlightAll();
+    </script>
+</html>
