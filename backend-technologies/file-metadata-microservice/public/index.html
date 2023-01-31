@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="styles.css" />
+        <link
+            rel="stylesheet"
+            href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/dark.min.css"
+        />
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <title>File Metadata Viewer</title>
+    </head>
+    <body>
+        <div class="docs">
+            <h1>File Metadata Viewer</h1>
+
+            <br />
+
+            <form enctype="multipart/form-data" method="POST" action="/api/fileanalyse">
+                <input id="inputfield" type="file" name="upfile" />
+                <input id="button" type="submit" value="Upload" />
+            </form>
+
+            <br />
+            <br />
+
+            <div class="usage">
+                <h3>Usage:</h3>
+
+                <p>Endpoint (POST request)</p>
+                <code> {url}/api/users </code>(creates a new user)
+
+                <br />
+
+                <p>Example body</p>
+                <pre><code class="language-json">
+{
+    "upfile": image.png
+}
+                </code></pre>
+
+                <p>Example response</p>
+                <pre><code class="language-json">
+{ 
+    "name": "image.png",
+    "type": "image/png",
+    "size": 4822
+}                    
+                </code></pre>
+            </div>
+        </div>
+    </body>
+
+    <script>
+        hljs.highlightAll();
+    </script>
+</html>
