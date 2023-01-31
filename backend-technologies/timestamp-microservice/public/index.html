@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="styles.css" />
+        <link
+            rel="stylesheet"
+            href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/dark.min.css"
+        />
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+        <title>TimeStamp Microservice</title>
+    </head>
+    <body>
+        <div class="docs">
+            <h1>TimeStamp API</h1>
+            <p>Get the current date or the provided date</p>
+
+            <br />
+
+            <div class="usage">
+                <h3>Usage:</h3>
+
+                <p>Endpoint</p>
+                <code> {url}/api/2023-01-31 </code>
+                <code> {url}/api/ </code>
+
+                <br />
+                <br />
+
+                <p>Example response</p>
+                <pre><code class="language-json">
+{
+    "unix": 1451001600000,
+    "utc": "Fri, 25 Dec 2015 00:00:00 GMT"
+}
+                </code></pre>
+            </div>
+        </div>
+    </body>
+
+    <script>
+        hljs.highlightAll();
+    </script>
+</html>
