@@ -5,31 +5,58 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="styles.css" />
+        <link
+            rel="stylesheet"
+            href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/dark.min.css"
+        />
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
         <title>WhoAMI Microservice</title>
     </head>
     <body>
         <div class="docs">
-            <h1>WhoAMI API</h1>
-            <p>Get your IP, language, and software</p>
+            <h1>Shortener Microservice</h1>
+            <p>Enter a URL and get an URL you can share</p>
 
             <br />
 
             <div class="usage">
                 <h3>Usage:</h3>
 
-                <p>Endpoint</p>
-                <code> {url}/api/2023-01-31 </code>
-                <code> {url}/api/ </code>
+                <p>Endpoint (POST request)</p>
+                <code> {url}/api/shorturl </code>
 
                 <br />
-                <br />
+
+                <p>Example body</p>
+                <pre><code class="language-json">
+{
+    "url": "https://www.asterki.ga/"
+}
+                </code></pre>
 
                 <p>Example response</p>
-                <code>
-                    { "ipaddress": "159.20.14.100", "language": "en-US,en;q=0.5", "software":
-                    "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:50.0) Gecko/20100101 Firefox/50.0" }
-                </code>
+                <pre><code class="language-json">
+{ 
+    "original_url": "https://freeCodeCamp.org",
+    "short_url": 1
+}                    
+                </code></pre>
+
+                <br />
+                <br />
+
+                <p>Endpoint (GET request)</p>
+                <code> {url}/api/shorturl/:urlID </code>
+
+                <br />
+
+                <p>Example URL</p>
+                <code class="language-json"> {url}/api/shorturl/2 </code>
             </div>
         </div>
     </body>
+
+    <script>
+        hljs.highlightAll();
+    </script>
 </html>

@@ -24,13 +24,6 @@ body {
 .docs .usage p {
   margin-bottom: 4px;
 }
-.docs .usage code {
-  background-color: #252525;
-  padding: 5px;
-  border-radius: 5px;
-  width: 100%;
-  margin-right: 5px;
-}
 
 @media screen and (max-width: 540px) {
   .docs {
