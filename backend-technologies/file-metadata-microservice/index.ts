@@ -3,9 +3,7 @@ import cors from 'cors';
 import multer from 'multer';
 
 const app: express.Application = express();
-const upload = multer({
-    storage: multer.memoryStorage(),
-}).single('upfile');
+const upload = multer({ dest: 'uploads/' }).single('upfile');
 
 // Add cors
 app.use(cors());
@@ -14,8 +12,6 @@ app.use(cors());
 app.use(express.static('./public'));
 
 app.post('/api/fileanalyse', (req, res) => {
-    if (!req.file) return res.status(400);
-
     upload(req, res, (err) => {
         if (err) return res.status(500);
 
